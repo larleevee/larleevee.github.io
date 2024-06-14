@@ -75,17 +75,22 @@ function create_next(){
       let current_iteration = main_grid[x][y];
       let neighbours = count_neighbours(main_grid, x, y);
 
-      //rule 4: reproduction
-      if (current_iteration == 0 && neighbours == 3) {
-        next_iteration[x][y] = 1;
-      } 
-
-      //rules 1 & 3: underpopulation & overpopulation
-      else if (current_iteration == 1 && (neighbours < 2 || neighbours > 3)) {
+      //underpopulation & overpopulation
+      if (current_iteration == 1 && (neighbours < 2 || neighbours > 3)) {
         next_iteration[x][y] = 0;
       }
 
-      //rule 2: is alive with 2 or 3 live neighbours, lives on
+      //reproduction
+      else if (current_iteration == 0 && neighbours == 3) {
+        next_iteration[x][y] = 1;
+      } 
+
+      //highlife rule (extra)
+      else if(current_iteration == 0 && neighbours == 6){
+        next_iteration[x][y] = 1;
+      }
+
+      //is alive with 2 or 3 live neighbours, lives on
       else {
         next_iteration[x][y] = current_iteration;
       }
