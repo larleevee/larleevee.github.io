@@ -8,14 +8,13 @@
     background: #fbe4ed;
   }
   
-  /* Create two unequal columns that floats next to each other */
-  /* Left column */
+  /*contains all cards on left*/
   .leftcolumn {   
     float: left;
     width: 75%;
   }
   
-  /* Right column */
+  /*contains all cards on right*/
   .rightcolumn {
     float: left;
     width: 25%;
@@ -28,7 +27,7 @@
     width: 100%;
   }
   
-  /* Add a card effect for articles */
+  /*contains actual content*/
   .card {
     background-color: white;
     padding: 20px;
@@ -41,33 +40,25 @@
     padding: 10px
   }
   
-  /* Clear floats after the columns */
+  /*clear the weird floaty thing*/
   .row::after {
     content: "";
     display: table;
     clear: both;
   }
   
-  /* Footer */
+  /*FEET*/
   .footer {
     padding: 10px;
     text-align: center;
     margin-top: 10px;
   }
   
-  /* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other */
+  /*when <800px make the two columns stack on top of each other instead of next to each other */
   @media screen and (max-width: 800px) {
     .leftcolumn, .rightcolumn {   
       width: 100%;
       padding: 0;
-    }
-  }
-  
-  /* Responsive layout - when the screen is less than 400px wide, make the navigation links stack on top of each other instead of next to each other */
-  @media screen and (max-width: 400px) {
-    .topnav a {
-      float: none;
-      width: 100%;
     }
   }
 
@@ -83,6 +74,7 @@
     font-weight: normal;
   }
 
+  /*to make links look like buttons because fuck buttons amirite*/
   .button { 
     background-color: white; 
     border-style: solid; 
