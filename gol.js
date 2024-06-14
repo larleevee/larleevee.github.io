@@ -1,3 +1,6 @@
+// 1 == alive
+// 0 == dead
+
 let cols;
 let rows;
 let main_grid;
@@ -89,13 +92,16 @@ function create_next(){
 
     }
   }
+
   main_grid = next_iteration; //update
 }
 
-function count_neighbors(main_grid, x, y) { //count how many alive cells around a given cell
+//count how many alive cells around a given cell
+function count_neighbors(main_grid, x, y) {
   let sum = 0;
   for (let i = -1; i < 2; i++) {
     for (let j = -1; j < 2; j++) {
+      //mod to wrap around grid :)
       let col = (x + i + cols) % cols;
       let row = (y + j + rows) % rows;
       sum += main_grid[col][row];
