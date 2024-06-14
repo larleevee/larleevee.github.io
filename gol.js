@@ -3,7 +3,15 @@ let cols;
 let rows;
 let resolution = 20;
 
-//helper function to make a 2d array of global rows/cols
+//helper function to generate random RGB colour value
+function generate_rand(){
+  let R = Math.floor(Math.random() * 255);
+  let G = Math.floor(Math.random() * 255);
+  let B = Math.floor(Math.random() * 255);
+  return(color(R,G,B));
+}
+
+//helper function to make matrices
 function generate_matrix(cols, rows) {
   let matrix = new Array(cols);
   for (let i = 0; i < matrix.length; i++) {
@@ -26,14 +34,14 @@ function setup() {
 }
 
 function draw() {
-  background(0);
+  background(color(0,0,0));
 
   for (let i = 0; i < cols; i++) {
     for (let j = 0; j < rows; j++) {
       let x_coord = i * resolution;
       let y_coord = j * resolution;
       if (main_grid[i][j] == 1) {
-        fill(255);
+        fill(generate_rand());
         stroke(0);
         rect(x_coord, y_coord, resolution - 1, resolution - 1); //draws rect in the right place
       }
