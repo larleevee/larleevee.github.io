@@ -73,19 +73,19 @@ function create_next(){
     for (let y = 0; y < rows; y++) {
 
       let current_iteration = main_grid[x][y];
-      let neighbors = count_neighbors(main_grid, x, y);
+      let neighbours = count_neighbours(main_grid, x, y);
 
-      //rule 1
-      if (current_iteration == 0 && neighbors == 3) {
+      //rule 4: reproduction
+      if (current_iteration == 0 && neighbours == 3) {
         next_iteration[x][y] = 1;
       } 
 
-      //rule 2
-      else if (current_iteration == 1 && (neighbors < 2 || neighbors > 3)) {
+      //rules 1 & 3: underpopulation & overpopulation
+      else if (current_iteration == 1 && (neighbours < 2 || neighbours > 3)) {
         next_iteration[x][y] = 0;
-      } 
+      }
 
-      //rule 3
+      //rule 2: is alive with 2 or 3 live neighbours, lives on
       else {
         next_iteration[x][y] = current_iteration;
       }
@@ -97,7 +97,7 @@ function create_next(){
 }
 
 //count how many alive cells around a given cell
-function count_neighbors(main_grid, x, y) {
+function count_neighbours(main_grid, x, y) {
   let sum = 0;
   for (let i = -1; i < 2; i++) {
     for (let j = -1; j < 2; j++) {
