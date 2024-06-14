@@ -1,7 +1,6 @@
-let grid;
 let cols;
 let rows;
-let resolution = 20;
+let main_grid;
 
 //helper function to generate random RGB colour value
 function generate_rand(){
@@ -20,11 +19,25 @@ function generate_matrix(cols, rows) {
   return matrix;
 }
 
-function setup() {
-  createCanvas(1000, 700);
-  cols = width / resolution;
-  rows = height / resolution;
+// reset board when mouse is pressed
+function mousePressed() {
+  rand_fill();
+}
 
+//create canvas + define globals
+function setup() {
+  frameRate(10);
+  createCanvas(1000, 700);
+  resolution = 20;
+
+  //make the squares
+  rows = height / resolution;
+  cols = width / resolution;
+  rand_fill();
+}
+
+//randomly fill grid
+function rand_fill() {
   main_grid = generate_matrix(cols, rows);
   for (let x = 0; x < cols; x++) {
     for (let y = 0; y < rows; y++) {
@@ -35,7 +48,7 @@ function setup() {
 
 function draw() {
   background(color(0,0,0));
-
+  create_next()
   for (let i = 0; i < cols; i++) {
     for (let j = 0; j < rows; j++) {
       let x_coord = i * resolution;
@@ -47,7 +60,9 @@ function draw() {
       }
     }
   }
+}
 
+function create_next(){
   let next_iteration = generate_matrix(cols, rows); //blank grid
 
   //loop through to work out state of next iteration
@@ -55,7 +70,7 @@ function draw() {
     for (let y = 0; y < rows; y++) {
 
       let current_iteration = main_grid[x][y];
-      let neighbors = countNeighbors(main_grid, x, y);
+      let neighbors = count_neighbors(main_grid, x, y);
 
       //rule 1
       if (current_iteration == 0 && neighbors == 3) {
@@ -74,11 +89,10 @@ function draw() {
 
     }
   }
-
   main_grid = next_iteration; //update
 }
 
-function countNeighbors(main_grid, x, y) { //count how many alive cells around a given cell
+function count_neighbors(main_grid, x, y) { //count how many alive cells around a given cell
   let sum = 0;
   for (let i = -1; i < 2; i++) {
     for (let j = -1; j < 2; j++) {
