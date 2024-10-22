@@ -31,6 +31,9 @@ function mousePressed() {
 function setup() {
   frameRate(10);
   createCanvas(1000, 700);
+
+  //must ensure this is a mult of 20 (minus the rightmost digit, if still not mult, -10)
+  //createCanvas(window.innerWidth-80, window.innerHeight-200);
   resolution = 20;
 
   //make the squares

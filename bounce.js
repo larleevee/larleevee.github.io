@@ -6,8 +6,8 @@ let ystep = 2;
 let r = 50;
 
 function setup() {
-    //createCanvas(window.innerWidth-80, window.innerHeight-200);
-    createCanvas(600,600)
+    createCanvas(window.innerWidth-80, window.innerHeight-200);
+    //createCanvas(600,600)
 }
 
 function draw() {

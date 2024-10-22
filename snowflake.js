@@ -4,7 +4,7 @@ let folds = 6;
 let angle = 360 / folds;
 
 function setup() { 
-  createCanvas(710, 710);
+  createCanvas(window.innerWidth-80, window.innerHeight-200);
   angleMode(DEGREES);
   background(0);
 }
