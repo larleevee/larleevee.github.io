@@ -69,9 +69,6 @@ body {
 
 .menu-window {
   position: absolute;
-  top: 16px;
-  right: 16px;
-  left: auto;
   width: 400px;
   min-height: 220px;
   background: #fff;
@@ -82,6 +79,19 @@ body {
   display: flex;
   flex-direction: column;
   overflow: hidden;
+}
+
+#menuWindow {
+  top: 16px;
+  right: 16px;
+  left: auto;
+}
+
+#videoMenu {
+  bottom: 64px; /* 48px bar + 16px gap */
+  left: 16px;
+  right: auto;
+  top: auto;
 }
 
 .menu-titlebar {
