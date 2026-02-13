@@ -1,12 +1,11 @@
 @font-face {
     font-family: 'main-font';
-    src: url(assets/MSW98UI-Regular.ttf) format('truetype');
+    src: url(/assets/MSW98UI-Regular.ttf) format('truetype');
 }
 
 body {
-    background: url('assets/wallpaper2.webp');
-    cursor: url("cursor.png"), auto;
-}
+    background: url('/assets/wallpaper2.webp');
+    background-size: cover;}
 
 .bottom-bar {
     position: fixed;
