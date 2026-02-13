@@ -69,8 +69,9 @@ body {
 
 .menu-window {
   position: absolute;
-  top: 80px;
-  left: 80px;
+  top: 16px;
+  right: 16px;
+  left: auto;
   width: 400px;
   min-height: 220px;
   background: #fff;
