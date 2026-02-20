@@ -5,7 +5,9 @@
 
 body {
     background: url('/assets/wallpaper2.webp');
-    background-size: cover;}
+    background-size: cover;
+    cursor: url('/assets/cursor.png'), auto;
+}
 
 .bottom-bar {
     position: fixed;
@@ -156,7 +158,6 @@ body {
 .desktop-icon-img {
   width: 64px;
   height: 64px;
-  margin-bottom: 2px;
   padding-left: 20px;
 }
 
